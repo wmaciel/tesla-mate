@@ -1,21 +1,19 @@
 # tesla-mate
-Archivos para instalar Tesla Mate en AWS EC2
+Installing TeslaMate on AWS EC2 or LightSail
+- Create instance and open ports *80*, *443*, *3000*, and *4000*
 
-Crear servidor EC2 y abrir puertos 80, 443, 3000, 4000
+- Fetch and run the setup script
+    - `wget https://raw.githubusercontent.com/wmaciel/tesla-mate/master/script.sh`
+    - `chmod +x script.sh`
+    - `./script.sh`
 
-wget https://raw.githubusercontent.com/jonatannietoa/tesla-mate/master/script.sh
+- Modify `.env` file if needed *(Optional)*
+    - `cd tesla-mate`
+    - `vim .env`
 
-chmod +x script.sh
+- Reboot and start docker daemon: 
+    - `sudo reboot`
+    - `sudo service docker start`
 
-./script.sh
-
-cd teslamate
-
-vim .env
-(Apretar a, editar y para guardar :wq)
-
-sudo reboot
-
-sudo service docker start
-
-docker-compose up
+- Start TeslaMate: (must be on same dir as the docker-compose file)
+    - `docker-compose up`
